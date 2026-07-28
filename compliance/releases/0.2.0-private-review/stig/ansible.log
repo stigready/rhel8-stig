@@ -1,0 +1,372 @@
+
+PLAY [verify] ******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : StigForge apply rhel8_stig profile stig] ***
+included: /stigforge/roles/rhel8_stig/tasks/stig.yml for localhost
+
+TASK [/stigforge/roles/rhel8_stig : Gather the package facts] ******************
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure aide is installed] ******************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Build and Test AIDE Database - Ensure AIDE Is Installed] ***
+skipping: [localhost] => (item=aide) 
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure aide is installed] ******************
+skipping: [localhost] => (item=aide) 
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure AIDE is installed] ******************
+skipping: [localhost] => (item=aide) 
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure rng-tools is installed] *************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall abrt-addon-ccpp Package: Ensure abrt-addon-ccpp is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall abrt-addon-kerneloops Package: Ensure abrt-addon-kerneloops is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall abrt-cli Package: Ensure abrt-cli is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall abrt-plugin-sosreport Package: Ensure abrt-plugin-sosreport is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall gssproxy Package: Ensure gssproxy is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall iprutils Package: Ensure iprutils is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall krb5-workstation Package: Ensure krb5-workstation is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall libreport-plugin-logger Package: Ensure libreport-plugin-logger is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall libreport-plugin-rhtsupport Package: Ensure libreport-plugin-rhtsupport is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall python3-abrt-addon Package: Ensure python3-abrt-addon is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall tuned Package: Ensure tuned is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Lock Accounts Must Persist - Ensure necessary SELinux packages are installed] ***
+changed: [localhost] => (item=python3-libselinux)
+changed: [localhost] => (item=python3-policycoreutils)
+changed: [localhost] => (item=policycoreutils-python-utils)
+
+TASK [/stigforge/roles/rhel8_stig : Ensure rsyslog-gnutls is installed] ********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure rsyslog is installed] ***************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure NetworkManager is installed] ********
+skipping: [localhost] => (item=NetworkManager) 
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure policycoreutils is installed] *******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall Automatic Bug Reporting Tool (abrt): Ensure abrt is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure fapolicyd is installed] *************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall vsftpd Package: Ensure vsftpd is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Remove the Kerberos Server Package: Ensure krb5-server is removed] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure mailx is installed] *****************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure postfix is installed] ***************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall Sendmail Package: Ensure sendmail is removed] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall telnet-server Package: Ensure telnet-server is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Uninstall tftp-server Package: Ensure tftp-server is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure openssh-server is installed] ********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure usbguard is installed] **************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable graphical user interface - Ensure xorg-x11-server-Xorg is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable graphical user interface - Ensure xorg-x11-server-common is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable graphical user interface - Ensure xorg-x11-server-utils is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable graphical user interface - Ensure xorg-x11-server-Xwayland is removed] ***
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure audit is installed] *****************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Gather the package facts] ******************
+ok: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable debug-shell SystemD Service - Collect systemd Services Present in the System] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable debug-shell SystemD Service - Ensure debug-shell.service is Masked] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Unit Socket Exists - debug-shell.socket] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable debug-shell SystemD Service - Disable Socket debug-shell] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Enable rsyslog Service - Enable Service rsyslog] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable the Automounter - Collect systemd Services Present in the System] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable the Automounter - Ensure autofs.service is Masked] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Unit Socket Exists - autofs.socket] ********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable the Automounter - Disable Socket autofs] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable KDump Kernel Crash Analyzer (kdump) - Collect systemd Services Present in the System] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable KDump Kernel Crash Analyzer (kdump) - Ensure kdump.service is Masked] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Unit Socket Exists - kdump.socket] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Disable KDump Kernel Crash Analyzer (kdump) - Disable Socket kdump] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Enable the File Access Policy Service - Enable Service fapolicyd] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Enable the Hardware RNG Entropy Gatherer Service - Enable Service rngd] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Enable the OpenSSH Service - Enable Service sshd] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Enable the USBGuard Service - Enable Service usbguard] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Enable auditd Service - Enable Service auditd] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Gather the service facts] ******************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Build and Test AIDE Database - Build and Test AIDE Database] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Build and Test AIDE Database - Check Whether the Stock AIDE Database Exists] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Build and Test AIDE Database - Stage AIDE Database] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Set audit_tools fact] **********************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure existing AIDE configuration for audit tools are correct] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Configure AIDE to properly protect audit tools] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Configure Notification of Post-AIDE Scan Details] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Get rules groups] **************************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure the acl rule is present when aide is installed.] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Get rules groups] **************************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure the xattrs rule is present when aide is installed.] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Set the file_audit_tools_group_ownership_newgroup variable if represented by gid] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/auditctl] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/auditctl] ******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/aureport] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/aureport] ******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/ausearch] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/ausearch] ******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/autrace] **********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/autrace] *******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/auditd] ***********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/auditd] ********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/rsyslogd] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/rsyslogd] ******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/augenrules] *******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure group owner on /sbin/augenrules] ****
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Set the file_audit_tools_ownership_newown variable if represented by uid] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/auditctl] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/auditctl] ************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/aureport] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/aureport] ************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/ausearch] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/ausearch] ************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/autrace] **********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/autrace] *************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/auditd] ***********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/auditd] **************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/rsyslogd] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/rsyslogd] ************
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/augenrules] *******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure owner on /sbin/augenrules] **********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/auditctl] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/auditctl] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/aureport] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/aureport] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/ausearch] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/ausearch] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/autrace] **********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/autrace] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/auditd] ***********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/auditd] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/rsyslogd] *********
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/rsyslogd] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Test for existence /sbin/augenrules] *******
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Ensure permission u-s,g-ws,o-wt on /sbin/augenrules] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Configure BIND to use System Crypto Policy - Check BIND configuration file exists] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Configure BIND to use System Crypto Policy - Aborting remediation, file not found] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Configure BIND to use System Crypto Policy - Insert crypto-policy into BIND config] ***
+skipping: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Configure System Cryptography Policy] ******
+changed: [localhost]
+
+TASK [/stigforge/roles/rhel8_stig : Verify that Crypto Policy is Set (runtime)] ***
+fatal: [localhost]: FAILED! => {"changed": false, "cmd": "/usr/bin/update-crypto-policies --set FIPS", "msg": "[Errno 2] No such file or directory: b'/usr/bin/update-crypto-policies'", "rc": 2, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=25   changed=2    unreachable=0    failed=1    skipped=94   rescued=0    ignored=0   
+
