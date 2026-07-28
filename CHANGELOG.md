@@ -17,13 +17,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Verified (OpenSCAP)
 
-- **`stig`** — score **95.92%** (floor 90.0%) · gate **PASS** · evidence `20260728T093037Z`
-  - Remaining counted failures: `configure_crypto_policy, network_configure_name_resolution`
+- **`stig`** — score **87.76%** (floor 90.0%) · gate **FAIL** · evidence `20260726T140053Z`
+  - Remaining counted failures: `configure_crypto_policy, ensure_gpgcheck_local_packages, file_permission_user_init_files_root, file_permissions_ungroupowned, network_configure_name_resolution, rootfiles_configured`
 
 ### Provenance
 
-- Factory pipeline: https://github.com/stigready/stigforge/actions/runs/30348467615
-- Factory commit: `49f1c019fbf7ba7f8edc345d79321ed45f9534de`
+- Factory pipeline: https://github.com/stigready/stigforge/actions/runs/30353408831
+- Factory commit: `5601d6c388051bf9f7636b086d93888a709b8b31`
 
 ## [0.2.1-private-review] - 2026-07-28
 
