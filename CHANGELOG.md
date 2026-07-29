@@ -2,6 +2,21 @@
 
 Format based on [Keep a Changelog](https://keepachangelog.com/).
 
+## [0.2.4-private-review] - 2026-07-29
+
+### Changed
+- StigForge export refresh for `rhel8_stig` at `0.2.4-private-review`.
+
+### Verified (OpenSCAP)
+
+- **`stig`** — score **93.88%** (floor 90.0%) · gate **PASS** · evidence `20260729T101034Z`
+  - Remaining counted failures: `configure_crypto_policy, file_permissions_ungroupowned, network_configure_name_resolution`
+
+### Provenance
+
+- Factory pipeline: https://github.com/stigready/stigforge/actions/runs/30440754045
+- Factory commit: `c481b47d629f5bc2357a86a933aa6f94f5245fce`
+
 ## [0.2.2-private-review] - 2026-07-28
 
 ### Added

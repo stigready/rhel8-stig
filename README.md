@@ -2,7 +2,7 @@
 
 **Ansible hardening role** for **RHEL 8** (DISA STIG). Suitable for playbooks, Packer/Ansible provisioners, and golden-image pipelines. Search keywords: `ansible`, `ansible-role`, `compliance`, `devsecops`, `disa`, `disa-stig`, `hardening`, `infrastructure`, `openscap`, `redhat`, `rhel`, `rhel8`, `security`, `stig`.
 
-StigForge-exported Ansible role **`rhel8_stig`** · release **`0.2.2-private-review`**.
+StigForge-exported Ansible role **`rhel8_stig`** · release **`0.2.4-private-review`**.
 Matrix cell status: **`green`**.
 
 ## Install (Ansible Galaxy)
@@ -13,7 +13,7 @@ lives under `compliance/` and is not loaded when the role runs.
 From **Ansible Galaxy** (after import; namespace `stigready`):
 
 ```bash
-ansible-galaxy role install stigready.rhel8_stig,0.2.2-private-review
+ansible-galaxy role install stigready.rhel8_stig,0.2.4-private-review
 ```
 
 From **GitHub** (public):
@@ -23,7 +23,7 @@ From **GitHub** (public):
 roles:
   - src: https://github.com/stigready/rhel8-stig
     scm: git
-    version: v0.2.2-private-review   # or an immutable commit SHA
+    version: v0.2.4-private-review   # or an immutable commit SHA
     name: rhel8_stig
 ```
 
@@ -38,9 +38,9 @@ Evidence was produced by **docker verify + OpenSCAP** on the factory CI run cite
 
 | Profile | Score | Floor | Gate | Ansible | Evidence tested (UTC) |
 |---|---:|---:|---|---|---|
-| `stig` | **87.76%** ✗ | 90.0% | FAIL ✗ | rc 2 | 20260726T140053Z |
+| `stig` | **93.88%** ✓ | 90.0% | PASS ✓ | rc 0 | 20260729T101034Z |
 
-Full artifacts per profile: `compliance/releases/0.2.2-private-review/<profile>/` (`score.json`, `results.xml`, `report.html`, `evidence.json`, `evidence-report.html`, `poam.md`).
+Full artifacts per profile: `compliance/releases/0.2.4-private-review/<profile>/` (`score.json`, `results.xml`, `report.html`, `evidence.json`, `evidence-report.html`, `poam.md`).
 
 ## Reports & review
 
@@ -53,7 +53,7 @@ Full artifacts per profile: `compliance/releases/0.2.2-private-review/<profile>/
 Re-run OpenSCAP in Docker and compare to this release's evidence:
 
 ```bash
-make prove RELEASE=0.2.2-private-review
+make prove RELEASE=0.2.4-private-review
 ```
 
 Or score your own `results.xml`: see **[compliance/README.md](compliance/README.md)**.
@@ -65,7 +65,7 @@ Or score your own `results.xml`: see **[compliance/README.md](compliance/README.
 
 ## Factory
 
-- Monorepo: [stigready/stigforge](https://github.com/stigready/stigforge) @ `5601d6c388051bf9f7636b086d93888a709b8b31`
-- CI run: https://github.com/stigready/stigforge/actions/runs/30353408831
+- Monorepo: [stigready/stigforge](https://github.com/stigready/stigforge) @ `c481b47d629f5bc2357a86a933aa6f94f5245fce`
+- CI run: https://github.com/stigready/stigforge/actions/runs/30440754045
 - Catalog: [https://stigready.com/#stigforge](https://stigready.com/#stigforge)
 
