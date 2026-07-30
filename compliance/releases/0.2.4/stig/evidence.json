@@ -3,7 +3,7 @@
   "role": "rhel8_stig",
   "profile": "stig",
   "product": "rhel8",
-  "timestamp": "20260729T101034Z",
+  "timestamp": "20260729T224354Z",
   "outcome": "success",
   "matrix": {
     "role": "rhel8_stig",
@@ -61,13 +61,13 @@
       "name": "OpenSCAP ARF",
       "desc": "Asset Reporting Format \u2014 POA&M source (stigready parity)",
       "local": "arf.xml",
-      "bytes": 38214571
+      "bytes": 38220716
     },
     {
       "name": "OpenSCAP report (HTML)",
       "desc": "human-readable SSG scorecard",
       "local": "report.html",
-      "bytes": 2749054
+      "bytes": 2749160
     },
     {
       "name": "OpenSCAP score line",
@@ -85,7 +85,7 @@
       "name": "Ansible apply log",
       "desc": "role application inside verify container",
       "local": "ansible.log",
-      "bytes": 733633
+      "bytes": 737947
     },
     {
       "name": "Ansible exit code",
