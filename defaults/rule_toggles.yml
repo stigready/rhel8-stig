@@ -50,7 +50,6 @@ rhel8stig_aide_check_audit_tools: true
 rhel8stig_aide_scan_notification: true
 rhel8stig_aide_verify_acls: true
 rhel8stig_aide_verify_ext_attributes: true
-rhel8stig_always: true
 rhel8stig_audit_rules_dac_modification_chmod: true
 rhel8stig_audit_rules_dac_modification_chown: true
 rhel8stig_audit_rules_dac_modification_fchmod: true
