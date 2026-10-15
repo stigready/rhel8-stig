@@ -1,0 +1,11 @@
+{
+  "role": "rhel8_stig",
+  "version": "0.3.29",
+  "factory_repo": "stigready/stigforge",
+  "matrix_status": "green",
+  "pipeline_run_id": "38788415667",
+  "factory_commit": "16242defcdcb4581bb827f25775d27d5946937bb",
+  "content_digest": "0154146ce3c06a53850bdef916c1f85cb9b58e05f4c71a3c812a7cfe1592a22f",
+  "container_verify": "removed-0017",
+  "compliance_evidence": "Not produced here. Container verify was removed by decision 0017 because a container cannot evaluate most STIG rules; compliance evidence for this role comes from the AMI build that consumes it in stigready/stigready."
+}
