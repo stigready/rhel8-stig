@@ -33395,6 +33395,7 @@
         regexp: (?i)(?i)^\s*ClientAliveCountMax\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33405,6 +33406,7 @@
         regexp: (?i)(?i)^\s*ClientAliveCountMax\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33452,6 +33454,7 @@
         regexp: (?i)(?i)^\s*ClientAliveInterval\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33462,6 +33465,7 @@
         regexp: (?i)(?i)^\s*ClientAliveInterval\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33511,6 +33515,7 @@
         regexp: (?i)(?i)^\s*PermitEmptyPasswords\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33521,6 +33526,7 @@
         regexp: (?i)(?i)^\s*PermitEmptyPasswords\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33568,6 +33574,7 @@
         regexp: (?i)(?i)^\s*GSSAPIAuthentication\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33578,6 +33585,7 @@
         regexp: (?i)(?i)^\s*GSSAPIAuthentication\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33620,6 +33628,7 @@
         regexp: (?i)(?i)^\s*KerberosAuthentication\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33630,6 +33639,7 @@
         regexp: (?i)(?i)^\s*KerberosAuthentication\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33672,6 +33682,7 @@
         regexp: (?i)(?i)^\s*PermitRootLogin\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33682,6 +33693,7 @@
         regexp: (?i)(?i)^\s*PermitRootLogin\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33732,6 +33744,7 @@
         regexp: (?i)(?i)^\s*IgnoreUserKnownHosts\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33742,6 +33755,7 @@
         regexp: (?i)(?i)^\s*IgnoreUserKnownHosts\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33784,6 +33798,7 @@
         regexp: (?i)(?i)^\s*X11Forwarding\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33794,6 +33809,7 @@
         regexp: (?i)(?i)^\s*X11Forwarding\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33834,6 +33850,7 @@
         regexp: (?i)(?i)^\s*PermitUserEnvironment\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33844,6 +33861,7 @@
         regexp: (?i)(?i)^\s*PermitUserEnvironment\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33890,6 +33908,7 @@
         regexp: (?i)(?i)^\s*StrictModes\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33900,6 +33919,7 @@
         regexp: (?i)(?i)^\s*StrictModes\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33941,6 +33961,7 @@
         regexp: (?i)(?i)^\s*Banner\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -33951,6 +33972,7 @@
         regexp: (?i)(?i)^\s*Banner\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -33995,6 +34017,7 @@
         regexp: (?i)(?i)^\s*PrintLastLog\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -34005,6 +34028,7 @@
         regexp: (?i)(?i)^\s*PrintLastLog\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -34044,6 +34068,7 @@
         regexp: (?i)(?i)^\s*RekeyLimit\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -34054,6 +34079,7 @@
         regexp: (?i)(?i)^\s*RekeyLimit\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
@@ -34137,6 +34163,7 @@
         regexp: (?i)(?i)^\s*X11UseLocalhost\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       check_mode: true
       changed_when: false
       register: dupes
@@ -34147,6 +34174,7 @@
         regexp: (?i)(?i)^\s*X11UseLocalhost\s+
         mode: '0600'
         state: absent
+        validate: /usr/sbin/sshd -t -f %s
       when: dupes.found is defined and dupes.found > 1
     - name: Insert correct line to /etc/ssh/sshd_config
       ansible.builtin.lineinfile:
