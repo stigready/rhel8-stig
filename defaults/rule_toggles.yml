@@ -166,7 +166,6 @@ rhel8stig_enable_gpgcheck_for_all_repositories: true
 rhel8stig_ensure_epel_repos_disabled: true
 rhel8stig_ensure_gpgcheck_local_packages: true
 rhel8stig_ensure_redhat_gpgkey_installed: true
-rhel8stig_fapolicy_default_deny: true
 rhel8stig_file_audit_tools_group_ownership: true
 rhel8stig_file_audit_tools_ownership: true
 rhel8stig_file_audit_tools_permissions: true
@@ -290,6 +289,7 @@ rhel8stig_sshd_use_strong_rng: true
 rhel8stig_sshd_x11_use_localhost: true
 rhel8stig_sssd_offline_cred_expiration: true
 rhel8stig_sudo_remove_no_authenticate: true
+rhel8stig_sudo_require_reauthentication: true
 rhel8stig_sudoers_default_includedir: true
 rhel8stig_sudoers_validate_passwd: true
 rhel8stig_sysctl_fs_protected_hardlinks: true
