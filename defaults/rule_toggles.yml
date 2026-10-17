@@ -338,6 +338,7 @@ rhel8stig_sysctl_net_ipv6_conf_default_accept_ra: '{{ rhel8stig_RHEL_08_040262 |
 rhel8stig_sysctl_net_ipv6_conf_default_accept_redirects: '{{ rhel8stig_RHEL_08_040210 | default(true) }}'
 rhel8stig_sysctl_net_ipv6_conf_default_accept_source_route: '{{ rhel8stig_RHEL_08_040250 | default(true) }}'
 rhel8stig_tftp_uses_secure_mode_systemd: '{{ rhel8stig_RHEL_08_040350 | default(true) }}'
+rhel8stig_usbguard_generate_policy: '{{ rhel8stig_RHEL_08_040140 | default(true) }}'
 rhel8stig_wireless_disable_interfaces: '{{ rhel8stig_RHEL_08_040110 | default(true) }}'
 rhel8stig_xwindows_remove_packages: '{{ rhel8stig_RHEL_08_040320 | default(true) }}'
 rhel8stig_xwindows_runlevel_target: '{{ rhel8stig_RHEL_08_040321 | default(true) }}'
