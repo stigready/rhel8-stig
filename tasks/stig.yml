@@ -54231,6 +54231,131 @@
   when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_rsyslog_remote_access_monitoring | default(true) |
     bool)
 - block:
+  - name: Configure the Amazon Time Sync Service as a chrony server (chronyd_server_directive)
+    ansible.builtin.lineinfile:
+      path: /etc/chrony.conf
+      regexp: ^server\s
+      line: server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4
+      create: true
+      mode: '0644'
+    tags:
+    - chronyd_server_directive
+    - DISA-STIG-RHEL-08-030740
+    - configure_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+  rescue:
+  - name: 'StigForge: continue after error in ''Configure the Amazon Time Sync Service as a chrony server (chronyd_server_directive)''
+      (OpenSCAP is the score gate)'
+    ansible.builtin.debug:
+      msg: 'StigForge: ''Configure the Amazon Time Sync Service as a chrony server (chronyd_server_directive)'' raised an
+        error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting
+        system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_chronyd_server_directive | default(true) | bool)
+- block:
+  - name: Find the sshd host private keys (file_permissions_sshd_private_key)
+    ansible.builtin.find:
+      paths: /etc/ssh
+      patterns: ssh_host_*_key
+    register: stigforge_sshd_host_keys
+    tags:
+    - file_permissions_sshd_private_key
+    - DISA-STIG-RHEL-08-010490
+    - configure_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+  rescue:
+  - name: 'StigForge: continue after error in ''Find the sshd host private keys (file_permissions_sshd_private_key)'' (OpenSCAP
+      is the score gate)'
+    ansible.builtin.debug:
+      msg: 'StigForge: ''Find the sshd host private keys (file_permissions_sshd_private_key)'' raised an error (module or
+        templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_file_permissions_sshd_private_key | default(true)
+    | bool)
+- block:
+  - name: Set the sshd host private keys to 0600 (file_permissions_sshd_private_key)
+    ansible.builtin.file:
+      path: '{{ item.path }}'
+      mode: '0600'
+    loop: '{{ stigforge_sshd_host_keys.files | default([]) }}'
+    loop_control:
+      label: '{{ item.path }}'
+    tags:
+    - file_permissions_sshd_private_key
+    - DISA-STIG-RHEL-08-010490
+    - configure_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+  rescue:
+  - name: 'StigForge: continue after error in ''Set the sshd host private keys to 0600 (file_permissions_sshd_private_key)''
+      (OpenSCAP is the score gate)'
+    ansible.builtin.debug:
+      msg: 'StigForge: ''Set the sshd host private keys to 0600 (file_permissions_sshd_private_key)'' raised an error (module
+        or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state
+        independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_file_permissions_sshd_private_key | default(true)
+    | bool)
+- block:
+  - name: Re-apply 0600 to regenerated sshd host keys before every sshd start (file_permissions_sshd_private_key)
+    ansible.builtin.copy:
+      dest: /etc/systemd/system/sshd.service.d/50-stigready-hostkey-perms.conf
+      content: '# StigReady: sshd-keygen@.service creates host keys 0640 root:ssh_keys; the STIG
+
+        # (file_permissions_sshd_private_key) forbids group/other access. Runs after
+
+        # sshd-keygen.target (sshd.service is ordered After= it) and before sshd starts.
+
+        [Service]
+
+        ExecStartPre=/bin/sh -c ''chmod 0600 /etc/ssh/ssh_host_*_key 2>/dev/null || true''
+
+        '
+      owner: root
+      group: root
+      mode: '0644'
+    register: stigforge_sshd_hostkey_dropin
+    tags:
+    - file_permissions_sshd_private_key
+    - DISA-STIG-RHEL-08-010490
+    - configure_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+  rescue:
+  - name: 'StigForge: continue after error in ''Re-apply 0600 to regenerated sshd host keys before every sshd start (file_permissions_sshd_private_key)''
+      (OpenSCAP is the score gate)'
+    ansible.builtin.debug:
+      msg: 'StigForge: ''Re-apply 0600 to regenerated sshd host keys before every sshd start (file_permissions_sshd_private_key)''
+        raised an error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the
+        resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_file_permissions_sshd_private_key | default(true)
+    | bool)
+- block:
+  - name: Reload systemd after the sshd host-key drop-in changed (file_permissions_sshd_private_key)
+    ansible.builtin.systemd:
+      daemon_reload: true
+    when: stigforge_sshd_hostkey_dropin is changed
+    tags:
+    - file_permissions_sshd_private_key
+    - DISA-STIG-RHEL-08-010490
+    - no_reboot_needed
+  rescue:
+  - name: 'StigForge: continue after error in ''Reload systemd after the sshd host-key drop-in changed (file_permissions_sshd_private_key)''
+      (OpenSCAP is the score gate)'
+    ansible.builtin.debug:
+      msg: 'StigForge: ''Reload systemd after the sshd host-key drop-in changed (file_permissions_sshd_private_key)'' raised
+        an error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting
+        system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_file_permissions_sshd_private_key | default(true)
+    | bool)
+- block:
   - name: Product hardening | Ensure auditd is running after the role's audit changes
     when: '''audit'' in ansible_facts.packages'
     ansible.builtin.systemd:

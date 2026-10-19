@@ -304,6 +304,100 @@
   - rsyslog_remote_access_monitoring
   - no_reboot_needed
 
+# chronyd_server_directive (RHEL-08-030740). The rule needs at least one `server` time source.
+# The RHEL 8 cloud image's chrony.conf carries only `pool 2.rhel.pool.ntp.org`, and SSG's remediation
+# skips when a pool directive exists, so nothing wrote a server line (stigready rhel-8:stig leg
+# 7e60f4018b4f, 2026-10-18). The RHEL 8 OVAL's no-pool test only matches indented `pool` lines
+# (`^[\s]+pool.*$`), so the column-0 pool line does not fail it; the missing server line does.
+# 169.254.169.123 is the Amazon Time Sync Service, the AWS-recommended source and the one reachable
+# from every VPC without internet access. Same task as rhel9_stig.
+- name: Configure the Amazon Time Sync Service as a chrony server (chronyd_server_directive)
+  ansible.builtin.lineinfile:
+    path: /etc/chrony.conf
+    regexp: '^server\s'
+    line: 'server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4'
+    create: true
+    mode: '0644'
+  tags:
+  - chronyd_server_directive
+  - DISA-STIG-RHEL-08-030740
+  - configure_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+
+# file_permissions_sshd_private_key (RHEL-08-010490). The generated tasks set the host keys to 0600, but on RHEL 8
+# /usr/libexec/openssh/sshd-keygen (run by sshd-keygen@<type>.service) creates missing keys as
+# 0640 root:ssh_keys, and cloud-init / sshd-keygen regenerate them on a fresh instance. The keys
+# were 0640 again after the FIPS reboot (stigready rhel-8:stig leg 7e60f4018b4f, 2026-10-18), and
+# every customer instance regenerates its keys at first boot, so a build-time chmod alone does not
+# hold. The OVAL forbids any group/other permission. Fix it now and on every sshd start:
+# sshd.service has `Wants=sshd-keygen.target` and `After=sshd-keygen.target` (the sshd-keygen@
+# instances are part of that target), so the drop-in's ExecStartPre runs after the keys are
+# generated and before sshd reads them. sshd itself accepts 0600 root-owned keys. A security
+# improvement for customer instances, not only a score fix.
+- name: Find the sshd host private keys (file_permissions_sshd_private_key)
+  ansible.builtin.find:
+    paths: /etc/ssh
+    patterns: 'ssh_host_*_key'
+  register: stigforge_sshd_host_keys
+  tags:
+  - file_permissions_sshd_private_key
+  - DISA-STIG-RHEL-08-010490
+  - configure_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+
+- name: Set the sshd host private keys to 0600 (file_permissions_sshd_private_key)
+  ansible.builtin.file:
+    path: '{{ item.path }}'
+    mode: '0600'
+  loop: '{{ stigforge_sshd_host_keys.files | default([]) }}'
+  loop_control:
+    label: '{{ item.path }}'
+  tags:
+  - file_permissions_sshd_private_key
+  - DISA-STIG-RHEL-08-010490
+  - configure_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+
+- name: Re-apply 0600 to regenerated sshd host keys before every sshd start (file_permissions_sshd_private_key)
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/sshd.service.d/50-stigready-hostkey-perms.conf
+    content: |
+      # StigReady: sshd-keygen@.service creates host keys 0640 root:ssh_keys; the STIG
+      # (file_permissions_sshd_private_key) forbids group/other access. Runs after
+      # sshd-keygen.target (sshd.service is ordered After= it) and before sshd starts.
+      [Service]
+      ExecStartPre=/bin/sh -c 'chmod 0600 /etc/ssh/ssh_host_*_key 2>/dev/null || true'
+    owner: root
+    group: root
+    mode: '0644'
+  register: stigforge_sshd_hostkey_dropin
+  tags:
+  - file_permissions_sshd_private_key
+  - DISA-STIG-RHEL-08-010490
+  - configure_strategy
+  - low_complexity
+  - low_disruption
+  - medium_severity
+  - no_reboot_needed
+
+- name: Reload systemd after the sshd host-key drop-in changed (file_permissions_sshd_private_key)
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when: stigforge_sshd_hostkey_dropin is changed
+  tags:
+  - file_permissions_sshd_private_key
+  - DISA-STIG-RHEL-08-010490
+  - no_reboot_needed
+
 # ---------------------------------------------------------------------------------------------
 # Leave auditd running. The generated rules restart auditd after editing them (`service auditd restart`, more than once per role);
 # on rhel-9-arm64:cis-l2 (stigready, 2026-10-16) the second restart 14 s after the first stopped auditd and never started it. With
