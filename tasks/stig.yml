@@ -54302,6 +54302,31 @@
   when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_file_permissions_sshd_private_key | default(true)
     | bool)
 - block:
+  - name: Create the sshd.service drop-in directory (file_permissions_sshd_private_key)
+    ansible.builtin.file:
+      path: /etc/systemd/system/sshd.service.d
+      state: directory
+      owner: root
+      group: root
+      mode: '0755'
+    tags:
+    - file_permissions_sshd_private_key
+    - DISA-STIG-RHEL-08-010490
+    - configure_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+  rescue:
+  - name: 'StigForge: continue after error in ''Create the sshd.service drop-in directory (file_permissions_sshd_private_key)''
+      (OpenSCAP is the score gate)'
+    ansible.builtin.debug:
+      msg: 'StigForge: ''Create the sshd.service drop-in directory (file_permissions_sshd_private_key)'' raised an error (module
+        or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state
+        independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_file_permissions_sshd_private_key | default(true)
+    | bool)
+- block:
   - name: Re-apply 0600 to regenerated sshd host keys before every sshd start (file_permissions_sshd_private_key)
     ansible.builtin.copy:
       dest: /etc/systemd/system/sshd.service.d/50-stigready-hostkey-perms.conf
