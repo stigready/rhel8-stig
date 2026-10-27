@@ -174,6 +174,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Ensure crypto-policies is installed'' raised an error (module or templating) and was skipped; continuing
         so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_crypto_policies_installed | default(true)
+    | bool)
 - name: 'StigForge: refresh package facts after ''Ensure crypto-policies is installed'' installed a package'
   ansible.builtin.package_facts:
     manager: auto
@@ -203,6 +205,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Ensure rng-tools is installed'' raised an error (module or templating) and was skipped; continuing
         so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_rng_tools_installed | default(true) | bool)
 - name: 'StigForge: refresh package facts after ''Ensure rng-tools is installed'' installed a package'
   ansible.builtin.package_facts:
     manager: auto
@@ -231,6 +234,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Uninstall abrt-addon-ccpp Package: Ensure abrt-addon-ccpp is removed'' raised an error (module or
         templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_abrt_addon_ccpp_removed | default(true) |
+    bool)
 - block:
   - name: 'Uninstall abrt-addon-kerneloops Package: Ensure abrt-addon-kerneloops is removed'
     ansible.builtin.package:
@@ -252,6 +257,8 @@
       msg: 'StigForge: ''Uninstall abrt-addon-kerneloops Package: Ensure abrt-addon-kerneloops is removed'' raised an error
         (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system
         state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_abrt_addon_kerneloops_removed | default(true)
+    | bool)
 - block:
   - name: 'Uninstall abrt-cli Package: Ensure abrt-cli is removed'
     ansible.builtin.package:
@@ -272,6 +279,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Uninstall abrt-cli Package: Ensure abrt-cli is removed'' raised an error (module or templating) and
         was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_abrt_cli_removed | default(true) | bool)
 - block:
   - name: 'Uninstall abrt-plugin-sosreport Package: Ensure abrt-plugin-sosreport is removed'
     ansible.builtin.package:
@@ -293,6 +301,8 @@
       msg: 'StigForge: ''Uninstall abrt-plugin-sosreport Package: Ensure abrt-plugin-sosreport is removed'' raised an error
         (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system
         state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_abrt_plugin_sosreport_removed | default(true)
+    | bool)
 - block:
   - name: 'Uninstall gssproxy Package: Ensure gssproxy is removed'
     ansible.builtin.package:
@@ -356,6 +366,8 @@
       msg: 'StigForge: ''Uninstall krb5-workstation Package: Ensure krb5-workstation is removed'' raised an error (module
         or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state
         independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_krb5_workstation_removed | default(true) |
+    bool)
 - block:
   - name: 'Uninstall libreport-plugin-logger Package: Ensure libreport-plugin-logger is removed'
     ansible.builtin.package:
@@ -377,6 +389,8 @@
       msg: 'StigForge: ''Uninstall libreport-plugin-logger Package: Ensure libreport-plugin-logger is removed'' raised an
         error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting
         system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_libreport_plugin_logger_removed | default(true)
+    | bool)
 - block:
   - name: 'Uninstall libreport-plugin-rhtsupport Package: Ensure libreport-plugin-rhtsupport is removed'
     ansible.builtin.package:
@@ -398,6 +412,8 @@
       msg: 'StigForge: ''Uninstall libreport-plugin-rhtsupport Package: Ensure libreport-plugin-rhtsupport is removed'' raised
         an error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting
         system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_libreport_plugin_rhtsupport_removed | default(true)
+    | bool)
 - block:
   - name: 'Uninstall python3-abrt-addon Package: Ensure python3-abrt-addon is removed'
     ansible.builtin.package:
@@ -419,6 +435,8 @@
       msg: 'StigForge: ''Uninstall python3-abrt-addon Package: Ensure python3-abrt-addon is removed'' raised an error (module
         or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state
         independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_python3_abrt_addon_removed | default(true)
+    | bool)
 - block:
   - name: 'Uninstall tuned Package: Ensure tuned is removed'
     ansible.builtin.package:
@@ -532,6 +550,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Ensure rsyslog-gnutls is installed'' raised an error (module or templating) and was skipped; continuing
         so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_rsyslog_gnutls_installed | default(true) |
+    bool)
 - name: 'StigForge: refresh package facts after ''Ensure rsyslog-gnutls is installed'' installed a package'
   ansible.builtin.package_facts:
     manager: auto
@@ -747,6 +767,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Remove the Kerberos Server Package: Ensure krb5-server is removed'' raised an error (module or templating)
         and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_krb5_server_removed | default(true) | bool)
 - block:
   - name: Ensure mailx is installed
     ansible.builtin.package:
@@ -859,6 +880,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Uninstall telnet-server Package: Ensure telnet-server is removed'' raised an error (module or templating)
         and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_telnet_server_removed | default(true) | bool)
 - block:
   - name: 'Uninstall tftp-server Package: Ensure tftp-server is removed'
     ansible.builtin.package:
@@ -884,6 +906,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Uninstall tftp-server Package: Ensure tftp-server is removed'' raised an error (module or templating)
         and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_tftp_server_removed | default(true) | bool)
 - block:
   - name: Ensure openssh-server is installed
     ansible.builtin.package:
@@ -905,6 +928,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Ensure openssh-server is installed'' raised an error (module or templating) and was skipped; continuing
         so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_package_openssh_server_installed | default(true) |
+    bool)
 - name: 'StigForge: refresh package facts after ''Ensure openssh-server is installed'' installed a package'
   ansible.builtin.package_facts:
     manager: auto
@@ -1123,7 +1148,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Disable debug-shell SystemD Service - Disable service debug-shell'' raised an error (module or templating)
         and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
-  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_special_service_block | default(true) | bool)
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_service_debug_shell_disabled | default(true) | bool)
 - block:
   - name: Enable rsyslog Service - Enable service rsyslog
     block:
@@ -1319,7 +1344,7 @@
       msg: 'StigForge: ''Enable the Hardware RNG Entropy Gatherer Service - Enable service rngd'' raised an error (module
         or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state
         independently.'
-  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_special_service_block | default(true) | bool)
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_service_rngd_enabled | default(true) | bool)
 - block:
   - name: Enable the OpenSSH Service - Enable service sshd
     block:
@@ -1357,7 +1382,7 @@
     ansible.builtin.debug:
       msg: 'StigForge: ''Enable the OpenSSH Service - Enable service sshd'' raised an error (module or templating) and was
         skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
-  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_special_service_block | default(true) | bool)
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_service_sshd_enabled | default(true) | bool)
 - block:
   - name: Enable the USBGuard Service - Enable service usbguard
     block:
@@ -17907,6 +17932,7 @@
       msg: 'StigForge: "Setting unquoted shell-style assignment of ''FirewallBackend'' to ''nftables'' in ''/etc/firewalld/firewalld.conf''"
         raised an error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the
         resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_firewalld_backend | default(true) | bool)
 - block:
   - name: Configure Accepting Router Advertisements on All IPv6 Interfaces - Set fact for sysctl paths
     ansible.builtin.set_fact:
@@ -21911,6 +21937,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: "Ensure kernel module ''firewire-core'' is disabled" raised an error (module or templating) and was
         skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_kernel_module_firewire_core_disabled | default(true)
+    | bool)
 - block:
   - name: Ensure kernel module 'firewire-core' is blacklisted
     ansible.builtin.lineinfile:
@@ -21936,6 +21964,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: "Ensure kernel module ''firewire-core'' is blacklisted" raised an error (module or templating) and
         was skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_kernel_module_firewire_core_disabled | default(true)
+    | bool)
 - block:
   - name: Ensure kernel module 'sctp' is disabled
     ansible.builtin.lineinfile:
@@ -25131,6 +25161,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: "Ensure kernel module ''usb-storage'' is disabled" raised an error (module or templating) and was skipped;
         continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_kernel_module_usb_storage_disabled | default(true)
+    | bool)
 - block:
   - name: Ensure kernel module 'usb-storage' is blacklisted
     ansible.builtin.lineinfile:
@@ -25162,6 +25194,8 @@
     ansible.builtin.debug:
       msg: 'StigForge: "Ensure kernel module ''usb-storage'' is blacklisted" raised an error (module or templating) and was
         skipped; continuing so later rules still run. OpenSCAP evaluates the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_kernel_module_usb_storage_disabled | default(true)
+    | bool)
 - block:
   - name: 'Add nosuid Option to /boot/efi: Check information associated to mountpoint'
     ansible.builtin.command: findmnt --fstab '/boot/efi'
@@ -30209,6 +30243,8 @@
       msg: 'StigForge: ''Disable acquiring, saving, and processing core dumps - Collect systemd Socket Units Present in the
         System'' raised an error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates
         the resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_service_systemd_coredump_disabled | default(true)
+    | bool)
 - block:
   - name: Disable acquiring, saving, and processing core dumps - Ensure systemd-coredump.socket is Masked
     ansible.builtin.systemd:
@@ -30236,6 +30272,8 @@
       msg: 'StigForge: ''Disable acquiring, saving, and processing core dumps - Ensure systemd-coredump.socket is Masked''
         raised an error (module or templating) and was skipped; continuing so later rules still run. OpenSCAP evaluates the
         resulting system state independently.'
+  when: (stigforge_rules_enabled | default(true) | bool) and (rhel8stig_service_systemd_coredump_disabled | default(true)
+    | bool)
 - block:
   - name: Disable core dump backtraces - Search for a section in files
     ansible.builtin.find:
